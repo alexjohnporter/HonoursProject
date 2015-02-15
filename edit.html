@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/edit.js"></script>
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+</head>
+<body>
+<nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class='navbar-brand site-name'>
+            <p class="site-name">Edit your page</p>
+        </div>
+    </div>
+</nav>
+<!--Update the header-->
+<div class="container center" id="header-update">
+    <h1>Update the header</h1>
+    <form class="form-inline" role="form" name="header-form" id="header-form" onsubmit="return false;">
+        <div class="form-group">
+            <label for="hdr-txt-update">Website name:</label>
+            <input type="text" class="form-control" id="hdr-txt-update" name="hdr-txt-update" required>
+        </div>
+        <div class="form-group">
+            <label for="author-update">Page owner:</label>
+            <input type="text" class="form-control" id="author-update" name="author-update" required>
+        </div>
+        <div class="form-group">
+            <label for="fb-update">Facebook:</label>
+            <input type="text" class="form-control" id="fb-update" name="fb-update" required>
+        </div>
+        <div class="form-group">
+            <label for="twit-update">Twitter:</label>
+            <input type="text" class="form-control" id="twit-update" name="twit-update" required>
+        </div>
+        <input type="hidden" name="header-id" id="header-id">
+        <br>
+
+        <div class='form-group'>
+            <div class='col-sm-offset-2 col-sm-10'>
+                <button type="submit" class="btn btn-default btn-lg">Submit</button>
+
+            </div>
+        </div>
+
+        <div class='alert alert-danger alert-dismissable' id='header-update-error' style='display: none;'>
+            <button type='button' class='close' data-dismiss='alert'
+                    aria-hidden='true'>
+                &times;
+            </button>
+            <p class="update-response"></p>
+        </div>
+
+
+        <div class='alert alert-success alert-dismissable' id='header-update-success' style='display: none;'>
+            <button type='button' class='close' data-dismiss='alert'
+                    aria-hidden='true'>
+                &times;
+            </button>
+            <p class="update-response"></p>
+        </div>
+
+    </form>
+</div>
+<!--end header update-->
+
+<!--edit opening timings-->
+        <div class="container center" id="update-time">
+            <h1>Update opening times</h1>
+
+            <form class="form-inline" role="form" onsubmit="return false;">
+                <label class="control-label" for="time-id-select"></label>
+                        <select class="form-control insert-time-id" name="time-id-select" id="time-id-select">
+
+                        </select>
+                <div class='form-group'>
+                    <div class='col-sm-offset-2 col-sm-10'>
+                        <button type="submit" class="btn btn-default btn-lg"  data-toggle='modal' data-target='#time-modal' id="time-select-button">Update</button>
+
+                    </div>
+                </div>
+            </form>
+
+            <div class='modal fade' id='time-modal' tabindex='-1' role='dialog' aria-labelledby='time-modal' aria-hidden='true'>
+                <div class='modal-dialog'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                            <h4 class='modal-title'>Update opening hours</h4>
+                        </div>
+                        <div class='modal-body'>
+                            <form class='form-horizontal' role='form'  id="time-update-form" name="time-update-form" onsubmit="return false">
+
+                                <div class='form-group form-inline'>
+                                    <label for='mon' class='col-sm-2 control-label'>Monday:</label>
+                                    <div class='col-sm-10'>
+                                        <input type='text' class='form-control' id='mon'
+                                               name="mon"   value='' required maxlength="5">
+                                        <span> - </span>
+                                        <input type='text' class='form-control' id='mon-close'
+                                               name="mon-close"   value='' required maxlength="5">
+                                    </div>
+                                </div>
+
+                                <div class='form-group form-inline'>
+                                    <label for='tues' class='col-sm-2 control-label'>Tuesday:</label>
+                                    <div class='col-sm-10'>
+                                        <input type='text' class='form-control' id='tues'
+                                               name="tues"   value='' required maxlength="5">
+                                        <span> - </span>
+                                        <input type='text' class='form-control' id='tues-close'
+                                               name="tues-close"   value='' required maxlength="5">
+                                    </div>
+                                </div>
+                                <div class='form-group form-inline'>
+                                    <label for='wed' class='col-sm-2 control-label'>Wednesday:</label>
+                                    <div class='col-sm-10'>
+                                        <input type='text' class='form-control' id='wed'
+                                               name="wed"   value='' required maxlength="5">
+                                        <span> - </span>
+                                        <input type='text' class='form-control' id='wed-close'
+                                               name="wed-close"   value='' required maxlength="5">
+                                    </div>
+                                </div>
+
+                                <div class='form-group form-inline'>
+                                    <label for='thurs' class='col-sm-2 control-label'>Thursday:</label>
+                                    <div class='col-sm-10'>
+                                        <input type='text' class='form-control' id='thurs'
+                                               name="thurs"   value='' required maxlength="5">
+                                        <span> - </span>
+                                        <input type='text' class='form-control' id='thurs-close'
+                                               name="thurs-close"   value='' required maxlength="5">
+                                    </div>
+                                </div>
+
+                                <div class='form-group form-inline'>
+                                    <label for='fri' class='col-sm-2 control-label'>Friday:</label>
+                                    <div class='col-sm-10'>
+                                        <input type='text' class='form-control' id='fri'
+                                               name="fri"   value='' required maxlength="5">
+                                        <span> - </span>
+                                        <input type='text' class='form-control' id='fri-close'
+                                               name="fri-close"   value='' required maxlength="5">
+                                    </div>
+                                </div>
+
+                                <div class='form-group form-inline'>
+                                    <label for='sat' class='col-sm-2 control-label'>Saturday:</label>
+                                    <div class='col-sm-10'>
+                                        <input type='text' class='form-control' id='sat'
+                                               name="sat"   value='' required maxlength="5">
+                                        <span> - </span>
+                                        <input type='text' class='form-control' id='sat-close'
+                                               name="sat-close"   value='' required maxlength="5">
+                                    </div>
+                                </div>
+
+                                <div class='form-group form-inline'>
+                                    <label for='sun' class='col-sm-2 control-label'>Sunday:</label>
+                                    <div class='col-sm-10'>
+                                        <input type='text' class='form-control' id='sun'
+                                               name="sun"   value='' required maxlength="5">
+                                        <span> - </span>
+                                        <input type='text' class='form-control' id='sun-close'
+                                               name="sun-close"   value='' required maxlength="5">
+                                    </div>
+                                </div>
+
+                                <input type="hidden" id="time-id-update" name="time-id-update" value="">
+
+                                <div class='form-group'>
+                                    <div class='col-sm-offset-2 col-sm-10'>
+                                        <button id='time-update-submit' class='btn btn-default'  value="update">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class='alert alert-danger alert-dismissable' id='time-update-error' style='display: none;'>
+                                <button type='button' class='close' data-dismiss='alert'
+                                        aria-hidden='true'>
+                                    &times;
+                                </button>
+                                <p class="update-response"></p>
+                            </div>
+                        </div>
+
+                        <div class='alert alert-success alert-dismissable' id='time-update-success' style='display: none;'>
+                            <button type='button' class='close' data-dismiss='alert'
+                                    aria-hidden='true'>
+                                &times;
+                            </button>
+                            <p class="update-response"></p>
+                        </div>
+                        <div class='modal-footer'>
+                            <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+<!--end edit-->
+
+<div class="container" id="insert-page">
+    <h1 class="page-header">Insert an item</h1>
+    <h3>Would you like to add a new entry?</h3>
+    <button id='insert-button' class="btn btn-default btn-lg" data-toggle='modal' data-target='#item-modal-insert'>Click here to insert a new item</button>
+    <hr>
+</div>
+
+
+<div class="container" id="edit-page">
+
+
+</div>
+
+<!--Item Modals-->
+<!--Update Modal-->
+    <div class='modal fade' id='item-modal' tabindex='-1' role='dialog' aria-labelledby='item-modal' aria-hidden='true'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                    <h4 class='modal-title'>Update an item</h4>
+                </div>
+                <div class='modal-body'>
+                    <form class='form-horizontal' role='form'  id="edit-item-form" name="edit-item-form" onsubmit="return false">
+
+                        <div class='form-group'>
+                            <label for='item-name-edit' class='col-sm-2 control-label'>Item Name:</label>
+                            <div class='col-sm-10'>
+                                <input type='text' class='form-control' id='item-name-edit'
+                                    name="item-name-edit"   value='' required>
+                            </div>
+                        </div>
+                        <div class='form-group'>
+                            <label for='first-line-edit' class='col-sm-2 control-label'>First line of the address:</label>
+                            <div class='col-sm-10'>
+                                <input type='text' class='form-control' id='first-line-edit'
+                                     name="first-line-edit"  value='' required>
+                            </div>
+                        </div>
+
+                        <div class='form-group'>
+                            <label for='second-line-edit' class='col-sm-2 control-label'>Second line of the address:</label>
+                            <div class='col-sm-10'>
+                                <input type='text' class='form-control' id='second-line-edit'
+                                      name="second-line-edit" value='' required>
+                            </div>
+                        </div>
+
+                        <div class='form-group'>
+                            <label for='postcode-edit' class='col-sm-2 control-label'>Postcode:</label>
+                            <div class='col-sm-10'>
+                                <input type='text' class='form-control' id='postcode-edit'
+                                      name="postcode-edit" value='' required>
+                            </div>
+                        </div>
+                        <div class='form-group'>
+                            <label for='item-img-edit' class='col-sm-2 control-label'>Image URL:</label>
+                            <div class='col-sm-10'>
+                                <input type='text' class='form-control' id='item-img-edit'
+                                  name="item-img-edit"     value='' required>
+                            </div>
+                        </div>
+                        <div class='form-group'>
+                            <label class='col-sm-2 control-label' for='item-txt-edit'>Comment:</label>
+                            <div class='col-sm-10'>
+                                <textarea name ='item-txt-edit' class='form-control' rows='5' id='item-txt-edit' maxlength="500"></textarea>
+                                <p>Max 500 characters.</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="edit-time-id">Opening time ID:</label>
+                            <div class="col-sm-3">
+                                <select class="form-control edit-time-id" name="edit-time-id" id="edit-time-id">
+
+                                </select>
+                            </div>
+                        </div>
+                        <input type="hidden" id="item-id-edit" name="item-id-edit" value="">
+
+                        <div class='form-group'>
+                            <div class='col-sm-offset-2 col-sm-10'>
+                                <button id='edit-submit' class='btn btn-default'  value="update">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class='alert alert-danger alert-dismissable' id='update-error' style='display: none;'>
+                        <button type='button' class='close' data-dismiss='alert'
+                                aria-hidden='true'>
+                            &times;
+                        </button>
+                       <p class="update-response"></p>
+                    </div>
+                </div>
+
+                <div class='alert alert-success alert-dismissable' id='update-success' style='display: none;'>
+                    <button type='button' class='close' data-dismiss='alert'
+                            aria-hidden='true'>
+                        &times;
+                    </button>
+                    <p class="update-response"></p>
+                </div>
+                <div class='modal-footer'>
+                    <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--Insert Modal-->
+<div class='modal fade' id='item-modal-insert' tabindex='-1' role='dialog' aria-labelledby='item-modal-insert' aria-hidden='true'>
+    <div class='modal-dialog'>
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                <h4 class='modal-title'>Insert an item</h4>
+            </div>
+            <div class='modal-body'>
+                <form class='form-horizontal' role='form'  id="insert-item-form" name="insert-item-form" onsubmit="return false">
+
+                    <div class='form-group'>
+                        <label for='item-name-insert' class='col-sm-2 control-label'>Item Name:</label>
+                        <div class='col-sm-10'>
+                            <input type='text' class='form-control' id='item-name-insert'
+                                   name="item-name-insert"   value='' required>
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <label for='first-line-insert' class='col-sm-2 control-label'>First line of the address:</label>
+                        <div class='col-sm-10'>
+                            <input type='text' class='form-control' id='first-line-insert'
+                                   name="first-line-insert"  value='' required>
+                        </div>
+                    </div>
+
+                    <div class='form-group'>
+                        <label for='second-line-insert' class='col-sm-2 control-label'>Second line of the address:</label>
+                        <div class='col-sm-10'>
+                            <input type='text' class='form-control' id='second-line-insert'
+                                   name="second-line-insert" value='' required>
+                        </div>
+                    </div>
+
+                    <div class='form-group'>
+                        <label for='postcode-insert' class='col-sm-2 control-label'>Postcode:</label>
+                        <div class='col-sm-10'>
+                            <input type='text' class='form-control' id='postcode-insert'
+                                   name="postcode-insert" value='' required>
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <label for='item-img-insert' class='col-sm-2 control-label'>Image URL:</label>
+                        <div class='col-sm-10'>
+                            <input type='text' class='form-control' id='item-img-insert'
+                                   name="item-img-insert"     value='' required>
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <label class='col-sm-2 control-label' for='item-txt-insert'>Comment:</label>
+                        <div class='col-sm-10'>
+                            <textarea name ='item-txt-insert' class='form-control' rows='5' id='item-txt-insert' maxlength="500"></textarea>
+                            <p>Max 500 characters.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="insert-time-id">Opening time ID:</label>
+                        <div class="col-sm-3">
+                            <select class="form-control insert-time-id" name="insert-time-id" id="insert-time-id">
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class='form-group'>
+                        <div class='col-sm-offset-2 col-sm-10'>
+                            <button id='insert-submit' class='btn btn-default' name="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
+                <div class='alert alert-danger alert-dismissable' id='insert-error' style='display: none;'>
+                    <button type='button' class='close' data-dismiss='alert'
+                            aria-hidden='true'>
+                        &times;
+                    </button>
+                    <p class="insert-response"></p>
+                </div>
+            </div>
+
+            <div class='alert alert-success alert-dismissable' id='insert-success' style='display: none;'>
+                <button type='button' class='close' data-dismiss='alert'
+                        aria-hidden='true'>
+                    &times;
+                </button>
+                <p class="insert-response"></p>
+            </div>
+            <div class='modal-footer'>
+                <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Delete modal -->
+<div class='modal fade' id='item-modal-delete' tabindex='-1' role='dialog' aria-labelledby='item-modal-delete' aria-hidden='true'>
+    <div class='modal-dialog'>
+        <div class='modal-content'>
+                <div class='modal-header'>
+                    <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+                    <h4 class='modal-title'>Delete an item</h4>
+                </div>
+                <div class='modal-body' style="text-align: center;">
+
+                    <form class='form-horizontal' role='form'  id="delete-item-form" name="delete-item-form" onsubmit="return false">
+                       <h2>Are you sure you want to delete this item?</h2>
+                        <input type="hidden" name="delete-item" id="delete-item" value="">
+                             <button id='delete-submit' class='btn btn-danger btn-lg'>Yes. Delete this item.</button>
+                     </form>
+                    <p>
+                     <button id='delete-close' class='btn btn-default btn-lg' data-dismiss='modal'>No! Take me back.</button>
+                    </p>
+                <div class='modal-footer'>
+                    <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+
