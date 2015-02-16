@@ -23,14 +23,6 @@ if(!$checkEmail || !$checkIP){
 }else {
 
     if (!empty($name) && !empty($email) && !empty($comment) && !empty($ip) && !empty($itemID)) {
-        try {
-            $dbh = new PDO("mysql:host=localhost;dbname=$database", $username, $password);
-            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // SQL errors will not be silent
-
-        } catch (PDOException $e) {
-            print "Error!: " . $e->getMessage() . "<br/>";
-            die();
-        }
         function checkReviewExists($dbh, $ip, $itemID)
         {
             $stmt = $dbh->prepare("SELECT reviewID FROM reviews WHERE reviewIP = :ip AND itemID=:itemID");

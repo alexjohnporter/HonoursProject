@@ -12,9 +12,6 @@ $timeID = sanitizeForm(isset($_POST['insert-time-id']) ? $_POST['insert-time-id'
 
 
     if( !empty($itemName) || !empty($itemTxt) || !empty($addOne) ||!empty($itemID) || !empty($addTwo) || !empty($postcode) || !empty($itemImg) || !empty($timeID)) {
-        try {
-            $dbh = new PDO("mysql:host=localhost;dbname=$database", $username, $password); // Connecting, selecting database
-            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // SQL errors will not be silent
 
                 $stmt = $dbh->prepare(" INSERT INTO items (itemName,itemTxt,AddressOne,AddressTwo,Postcode,itemImg, timeID) VALUES (:itemName,:itemTxt,:a1,:a2,:pc,:img,:timeID)");
                 $stmt->bindParam(':itemName', $itemName);
@@ -25,6 +22,7 @@ $timeID = sanitizeForm(isset($_POST['insert-time-id']) ? $_POST['insert-time-id'
                 $stmt->bindParam(':img', $itemImg);
                 $stmt->bindParam(':timeID', $timeID);
                 $result = $stmt->execute();
+
                 if($result === true){
                     $insert_status['status'] = true;
 
@@ -34,18 +32,8 @@ $timeID = sanitizeForm(isset($_POST['insert-time-id']) ? $_POST['insert-time-id'
                 }
                  echo json_encode($insert_status);
             $dbh = null; // Closing connection after success
-        }
 
 
-        catch (PDOException $e) {
-            $dbh = null; // Closing connection if some error has occured
-            $errorMessage['data'] = 'failed';
-            echo json_encode($errorMessage);
-            print "Error!: " . $e->getMessage() . "<br/>"; // WARNING - error messages are potential security weakness on production sites
-            print "PHP Line Number: " . $e->getLine() . "<br/>";
-            print "PHP File: " . $e->getFile() . "<br/>";
-            die();
-        }
     }else{
         $insert_status['status'] = false;
         $errorMessage['message'] = 'No data';
