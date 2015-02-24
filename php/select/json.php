@@ -11,9 +11,7 @@
       $stmt->bindParam(':itemID', $q);
   }
 	$stmt->execute();
-	 
 	$result = $stmt->fetchAll( PDO::FETCH_ASSOC );
-
         // convert to json
     $json = json_encode($result);
 		
