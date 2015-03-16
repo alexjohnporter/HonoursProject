@@ -82,6 +82,7 @@ if (navigator.geolocation) {
     };
 
 } else {
+    geoStatus = false;
     console.log("geolocation isn't available");
 }
 

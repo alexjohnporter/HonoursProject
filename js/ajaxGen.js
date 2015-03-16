@@ -9,7 +9,7 @@ $(document).ready(function () {
         $('#main-page').show('slow');
         $('#address-success').hide('slow');
         $('#address-error').hide('slow');
-        $('#review-container').empty();
+        $('#review-container').html('');
         window.scrollTo(0, 0); //ensures it displays the page from the top
     });
 
@@ -88,6 +88,7 @@ var firstPageJson = $.getJSON("php/select/json.php", function (data) {
             $('#map-page').show('slow');
             $('#main-page').hide('slow');
             window.scrollTo(0, 0);
+            $('#review-container').html('');
 
             var fullPageJson = $.getJSON("php/select/json.php?q=" + itemID, function (data) {
                 $.each(data, function (i, ent) {
@@ -190,14 +191,7 @@ var firstPageJson = $.getJSON("php/select/json.php", function (data) {
                         calcRoute((currLat + ',' + currLong), fullAddress, google.maps.TravelMode.DRIVING);
                     }
                 });
-            });
 
-            fullPageJson.fail(function () {
-                console.log('JSON has failed to parse');
-            });
-
-
-            $('#view-review').click(function () {
                 $.getJSON("php/select/viewReview.php?q=" + itemID, function (data) {
                     $.each(data, function (i, ent) {
                         $("<div class='row'><div class='col-lg-12' class='review-items'>" +
@@ -208,8 +202,12 @@ var firstPageJson = $.getJSON("php/select/json.php", function (data) {
 
                     });
                 });
+
             });
 
+            fullPageJson.fail(function () {
+                console.log('JSON has failed to parse');
+            });
         });
 
 
