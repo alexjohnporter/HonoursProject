@@ -1,11 +1,13 @@
 var geocoder, map, myLat, myLong, currLat, currLong, currPos, directionsDisplay, marker;
 var directionsService = new google.maps.DirectionsService();
 
+//Defines GoogleMap options such a Zoom and type of map
 var mapOptions = {
     zoom: 17,
     mapTypeId: google.maps.MapTypeId.ROADMAP
 };
 
+//Initializes all of the Google Map functions
 function init(address) {
     geocoder = new google.maps.Geocoder();
     directionsDisplay = new google.maps.DirectionsRenderer();
@@ -21,7 +23,7 @@ function init(address) {
     }, 500);
 }
 
-
+//Makes sure that the icon stays in the centre of the map during screen size change
 google.maps.event.addDomListener(window, "resize", function () {
     if (map) {
         var center = map.getCenter();
@@ -34,9 +36,8 @@ google.maps.event.addDomListener(window, "resize", function () {
     }
 });
 
-
+//GoogleMaps geocoding function, returns lat+lng
 function getCoords(address) {
-
     geocoder.geocode({
         'address': address
     }, function (results, status) {
@@ -57,6 +58,7 @@ function getCoords(address) {
     });
 }
 
+//default status for geolocation - assumes it is on
 var geoStatus = true;
 
 if (navigator.geolocation) {
@@ -71,7 +73,7 @@ if (navigator.geolocation) {
 
             function (err) {
                 console.log(err + ": Geolocation is disabled. Please turn it on and try again.");
-                geoStatus = false;
+                geoStatus = false; //if geolocation is disabled, change to false
 
             });
         navigator.geolocation.watchPosition(function (pos) {
@@ -85,10 +87,10 @@ if (navigator.geolocation) {
     geoStatus = false;
     console.log("geolocation isn't available");
 }
-
+//Calculates route from starting location to end locations
 function calcRoute(startLoc, endLoc, transportMethod) { //standard google-maps directions function adapted to my project
     var request = {
-        origin: startLoc,
+        origin: startLoc, //either supplied by geolocation or geocoding function
         destination: endLoc,
         travelMode: transportMethod
     };

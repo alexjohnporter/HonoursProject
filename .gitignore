@@ -54,3 +54,6 @@ Temporary Items
 .idea/scopes/scope_settings.xml
 .idea/vcs.xml
 .idea/workspace.xml
+*.xml
+*.zip
+New Text Document.txt

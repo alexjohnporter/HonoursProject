@@ -1,4 +1,4 @@
-var gotLoc = false;
+var gotLoc = false; //if geolocation is off, assumes app doesn't have location
 
 $(document).ready(function () {
 
@@ -70,6 +70,7 @@ var getIP = {
     }
 };
 
+//parses json from php file into HTML
 var firstPageJson = $.getJSON("php/select/json.php", function (data) {
     $.each(data, function (i, ent) {
         $("<div class='item-group row'><div class='col-lg-6 item-left'><h3 class='item-name'>" + ent['itemName'] + "</h3>" +
