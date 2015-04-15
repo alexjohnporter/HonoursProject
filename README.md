@@ -1,6 +1,6 @@
 # Honours Project
 
-This framework/CSS is my honours project. It was designed to let developers create a website or a mobile application in a matter of minutes
+This framework/CMS is my honours project. It was designed to let developers create a website or a mobile application in a matter of minutes
 
 **Examples can be found at:**
 
