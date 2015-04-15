@@ -7,7 +7,7 @@
   if($q==null) {
       $stmt = $dbh->prepare('SELECT * FROM items;');
   }else{
-      $stmt = $dbh->prepare('SELECT `items`.*,`timing`.* FROM items LEFT JOIN `museums`.`timing` ON `items`.`timeID` = `timing`.`timeID` WHERE itemID = :itemID;');
+      $stmt = $dbh->prepare('SELECT `items`.*,`timing`.* FROM items LEFT JOIN `timing` ON `items`.`timeID` = `timing`.`timeID` WHERE itemID = :itemID;');
       $stmt->bindParam(':itemID', $q);
   }
 	$stmt->execute();
